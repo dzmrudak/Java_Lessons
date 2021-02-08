@@ -6,7 +6,7 @@ public class Task8 {
         int a = 10;
         int b = 15;
         int fact = 1;
-        for (; b >= a; fact *= b--){ }
+        for (; b >= a; fact *= b--);
         System.out.println("Факториал числа в границах от 10 до 15 = " + fact);
     }
 }
