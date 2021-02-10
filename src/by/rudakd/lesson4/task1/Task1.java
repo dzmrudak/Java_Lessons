@@ -11,7 +11,7 @@ public class Task1 {
             for (int j = countColumns; j < arrayLength; j++) {
                 array[i][j] = 1;
             }
-            if (i < 2) {
+            if (i < array.length / 2) {
                 arrayLength--;
                 countColumns++;
             } else {
