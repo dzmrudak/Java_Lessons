@@ -23,10 +23,7 @@ public class Task2 {
         }
         //Определение суммы элементов на главной диагонали
         for (int k = 0; k < array.length; k++) {
-            for (int m = k; m < array.length; m++) {
-                sumMainDiagonal += array[k][m];
-                break;
-            }
+                sumMainDiagonal += array[k][k];
         }
         // Вывод суммы элементов главной диагонали на консоль
         System.out.println("Сумма элементов на главное диагонали = " + sumMainDiagonal);
