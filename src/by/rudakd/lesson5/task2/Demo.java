@@ -1,6 +1,8 @@
 package by.rudakd.lesson5.task2;
-
-import java.util.Arrays;
+/*2.Customer: id, Фамилия, Имя, Отчество, Адрес, Номер кредитной карточки, Номер банковского счета.
+        Создать массив объектов. Вывести:
+        a) список покупателей в алфавитном порядке;
+        b) список покупателей, у которых номер кредитной карточки находится в заданном интервале.*/
 
 public class Demo {
     // При создании нового объекта Customer, введите
@@ -16,8 +18,8 @@ public class Demo {
         customers[2] = customer3;
         customers[3] = customer4;
 
-        printSortedArray.shuttleSorting(customers);
+        CustomerListInInterval.printSortedArrayOfCustomers(customers);
         System.out.println();
-        CustomerListInInterval.customerListInInterval(customers);
+        CustomerListInInterval.printArrayInInterval(customers);
     }
 }

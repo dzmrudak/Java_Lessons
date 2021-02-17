@@ -3,7 +3,15 @@ package by.rudakd.lesson5.task2;
 import java.util.Scanner;
 
 public class CustomerListInInterval {
-    public static void customerListInInterval(Customer[] array) {
+
+    public static void printSortedArrayOfCustomers(Customer[] array) {
+        ArraySorting.shuttleSorting(array);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
+    public static Customer[] customerListInInterval(Customer[] array) {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the initial value of the Interval: ");
@@ -17,12 +25,31 @@ public class CustomerListInInterval {
             endOfInterval = sc.nextInt();
         }
 
+        int countOfNewArrayLength = 0;
+        int indexOfNewArray = 0;
         for (int i = 0; i < array.length; i++) {
             if ((array[i].creditCardId < startOfInterval) || (array[i].creditCardId > endOfInterval)) {
                 continue;
             } else {
-                System.out.print(array[i]);
+                countOfNewArrayLength++;
             }
+        }
+        Customer[] arrayInInterval = new Customer[countOfNewArrayLength];
+        for (int i = 0; i < array.length; i++) {
+            if ((array[i].creditCardId < startOfInterval) || (array[i].creditCardId > endOfInterval)) {
+                continue;
+            } else {
+                arrayInInterval[indexOfNewArray] = array[i];
+                indexOfNewArray++;
+            }
+        }
+        return arrayInInterval;
+    }
+
+    public static void printArrayInInterval(Customer[] array) {
+        Customer[] arrayToPrint = customerListInInterval(array);
+        for (int i = 0; i < arrayToPrint.length; i++) {
+            System.out.println(arrayToPrint[i]);
         }
     }
 }

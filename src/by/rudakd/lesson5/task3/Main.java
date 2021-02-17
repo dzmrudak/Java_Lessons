@@ -1,5 +1,9 @@
 package by.rudakd.lesson5.task3;
-//3.Book: id, Название, Автор (ы), Издательство, Год издания, Количество страниц, Цена.
+/* 3.Book: id, Название, Автор (ы), Издательство, Год издания, Количество страниц, Цена.
+Создать массив объектов. Вывести:
+        a) список книг заданного автора;
+        b) список книг, выпущенных заданным издательством;
+        c) список книг, выпущенных после заданного года*/
 
 public class Main {
     public static void main(String[] args) {
@@ -16,8 +20,8 @@ public class Main {
         books[3] = book4;
         books[4] = book5;
 
-        BookLibrary.booksByAuthor(books);
-        BookLibrary.booksByPublisher(books);
-        BookLibrary.booksByYear(books);
+        BookLibrary.printBooksArrayByAuthor(books);
+        BookLibrary.printBooksArrayByPublisher(books);
+        BookLibrary.printBooksArrayByYear(books);
     }
 }

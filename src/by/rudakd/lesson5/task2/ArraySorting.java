@@ -1,6 +1,6 @@
 package by.rudakd.lesson5.task2;
 
-public class printSortedArray {
+public class ArraySorting {
 
     private static void swap(Customer[] array, int ind1, int ind2) {
         Customer tmp = array[ind1];
@@ -8,7 +8,7 @@ public class printSortedArray {
         array[ind2] = tmp;
     }
 
-    public static void shuttleSorting(Customer[] array) {
+    public static Customer[] shuttleSorting(Customer[] array) {
         for (int i = 1; i < array.length; i++) {
             if ((array[i].surname).compareTo(array[i - 1].surname) < 0) {
                 swap(array, i, i - 1);
@@ -21,10 +21,6 @@ public class printSortedArray {
                 }
             }
         }
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
-        //return array;
+        return array;
     }
 }
