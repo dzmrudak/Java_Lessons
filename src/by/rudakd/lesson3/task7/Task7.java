@@ -11,30 +11,30 @@ public class Task7 {
         int arrayLength = scan.nextInt();
         int[] array = new int[arrayLength];
         int sumOfElements = 0;
+        int count = 0;
+        int maxElement = 0;
+        int minElement = 0;
         // Заполнение массива рандомными значениями от 0 до 20
         for(int k = 0; k < array.length; k++){
             array[k] =  (int)(Math.random() * 21);
+            count++;
         }
         System.out.println("Массив array: "+ Arrays.toString(array));
-        //Сортировка массива array челночным способом (Shuttle Sort):
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < array[i - 1]) {
-                int tmp = array[i];
-                array[i] = array[i - 1];
-                array[i - 1] = tmp;
-                for (int j = i - 1; (j - 1) >= 0; j--){
-                    if(array[j] < array[j - 1]) {
-                        int tmp1 = array[j];
-                        array[j] = array[j - 1];
-                        array[j - 1] = tmp1;
-                    } else break;
-                }
+        // Если массив не пустой, присвоим значение первого элемента массива минимальному элементу
+        if(count != 0) {
+            minElement = array[0];
+        }
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > maxElement) maxElement = array[i]; //Определение значения максимального элемента массива
+            if(array[i] < minElement) minElement = array[i]; //Определение значения минимального элемента массива
+        }
+        System.out.println("maxElement = " + maxElement);
+        System.out.println("minElement = " + minElement);
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] != maxElement && array[i] != minElement) {
+                sumOfElements += array[i];
             }
         }
-        for(int z = 1; z < array.length - 1; z++){
-            sumOfElements += array[z];
-        }
-        System.out.println("Отсортированный массив array: "+ Arrays.toString(array));
         System.out.println("Сумма элементов между минимальным и максимальным значениями = " + sumOfElements);
     }
 }
