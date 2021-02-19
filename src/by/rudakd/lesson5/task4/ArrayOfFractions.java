@@ -8,7 +8,7 @@ public class ArrayOfFractions {
         for (int i = 0; i < a.length; i++) {
             System.out.print("Enter a sign (1 - for '+'; (-1) - for '-'): ");
             int sign = scan.nextInt();
-            while ((sign > 1) && (sign < (-1)) && (sign == 0)) {
+            while ((sign != 1) && (sign != (-1))) {
                 System.out.print("Enter a sign (1 - for '+'; (-1) - for '-'): ");
                 sign = scan.nextInt();
             }
