@@ -8,9 +8,9 @@ public class Customer {
     public String fatherName;
     public String address;
     public int creditCardId;
-    public int bankAccountId;
+    public String bankAccountId;
 
-    public Customer(String surname, String name, String fatherName, String address, int creditCardId, int bankAccountId) {
+    public Customer(String surname, String name, String fatherName, String address, int creditCardId, String bankAccountId) {
         customerId = id++;
         //amountOfCustomers = customerId;
         this.surname = surname;
