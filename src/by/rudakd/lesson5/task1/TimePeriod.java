@@ -5,43 +5,39 @@ import java.util.Scanner;
 public class TimePeriod {
 
     public static int id = 1;
-    public int timePeriodId;
+    public int periodCounter;
     public int seconds;
     public int minutes;
     public int hours;
 
-    public TimePeriod() {
-        timePeriodId = id++;
-        System.out.println("Period " + timePeriodId);
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter seconds: ");
-        seconds = scan.nextInt();
-        System.out.print("Enter minutes: ");
-        minutes = scan.nextInt();
-        System.out.print("Enter hours: ");
-        hours = scan.nextInt();
-        System.out.println();
-    }
-
     public TimePeriod(int seconds, int minutes, int hours) {
-        timePeriodId = id++;
+        periodCounter = id++;
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
     }
 
-    public TimePeriod(int seconds) {
-        timePeriodId = id++;
-        this.seconds = seconds;
-    }
-
     public int getTimePeriodId() {
-        return timePeriodId;
+        return periodCounter;
     }
 
     public static int getId() {
         return id;
     }
 
+    public int calculateSeconds() {
+        int amountOfSeconds;
+        amountOfSeconds = (this.hours * 3600) + (this.minutes * 60) + this.seconds;
+        return amountOfSeconds;
+    }
 
+    public void compareTwoTimePeriods(TimePeriod b) {
+        if (calculateSeconds() > b.calculateSeconds()) {
+            System.out.println("Period" + periodCounter + " is longer than Period" + b.periodCounter);
+        } else if (calculateSeconds() < b.calculateSeconds()) {
+            System.out.println("Period" + periodCounter + " is shorter than Period" + b.periodCounter);
+        } else {
+            System.out.println("Periods are equal");
+        }
+    }
 }
