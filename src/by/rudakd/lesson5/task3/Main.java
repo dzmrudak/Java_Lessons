@@ -20,8 +20,22 @@ public class Main {
         books[3] = book4;
         books[4] = book5;
 
-        BookLibrary.printBooksArrayByAuthor(books);
-        BookLibrary.printBooksArrayByPublisher(books);
-        BookLibrary.printBooksArrayByYear(books);
+        System.out.printf("Cписок книг заданного автора");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an Author: ");
+        String searchableAuthor = sc.nextLine();
+        BookLibrary.printBooksArrayByAuthor(searchableAuthor, books);
+        System.out.println();
+
+        System.out.printf("Cписок книг, выпущенных заданным издательством");
+        System.out.print("Enter a Publisher: ");
+        String searchablePublisher = sc.nextLine();
+        BookLibrary.printBooksArrayByPublisher(searchablePublisher, books);
+        System.out.println();
+
+        System.out.println("Список книг, выпущенных после заданного года");
+        System.out.print("Enter a Year: ");
+        int searchableYear = sc.nextInt();
+        BookLibrary.printBooksArrayByYear(searchableYear, books);
     }
 }
