@@ -8,18 +8,27 @@ import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
-        Fraction fract1 = new Fraction(1, 1, 2, 3);
+        Fraction fract1 = new Fraction(1, 1, 2, 3); //0
         Fraction fract2 = new Fraction(1, 1, 2, 3);
-        Fraction fract3 = new Fraction(1, 1, 2, 3);
+        Fraction fract3 = new Fraction(1, 1, 2, 3);//2
         Fraction fract4 = new Fraction(1, 1, 2, 3);
-        Fraction fract5 = new Fraction(1, 1, 2, 3);
+        Fraction fract5 = new Fraction(1, 1, 2, 3);//4
         Fraction fract6 = new Fraction(1, 1, 2, 3);
         //Применение методов сложения, вычитания, умножения, деления
-        System.out.println(FractionService.additionObject(fract1, fract2));
-        System.out.println(FractionService.subtractionObject(fract1, fract2));
-        System.out.println(FractionService.multiplicationObject(fract1, fract2));
-        System.out.println(FractionService.divisionObject(fract1, fract2));
+        System.out.println("Сумма двух дробей: ");
+        System.out.println(fract1.additionObject(fract2));
+        System.out.println();
 
+        System.out.println("Вычитание двух дробей: ");
+        System.out.println(fract1.subtractionObject(fract2));
+        System.out.println();
+
+        System.out.println("Умножение двух дробей: ");
+        System.out.println(fract1.multiplicationObject(fract2));
+        System.out.println();
+
+        System.out.println("Деление двух дробей: ");
+        System.out.println(fract1.divisionObject(fract2));
         System.out.println();
 
         //Инициализация массива размером amountOfFractions, ручной ввод
