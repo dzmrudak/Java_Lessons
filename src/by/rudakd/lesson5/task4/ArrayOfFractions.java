@@ -35,10 +35,7 @@ public class ArrayOfFractions {
 
         for(int i = 1; i < a.length; i++) {
             if ((i - 1) % 2 == 0) {
-                a[i - 1] = FractionService.additionObject(a[i], a[i - 1]);
-            }
-            else {
-                FractionService.getIntPart(a[i]);
+                a[i - 1] = a[i].additionObject(a[i - 1]);
             }
         }
         for(int i = 0; i < a.length; i++){ //Выделение целой части и сокращение дробей
