@@ -3,11 +3,8 @@ package by.rudakd.lesson5.task3;
 import java.util.Scanner;
 
 public class BookLibrary {
+    public static Book[] findByAuthor(String searchableAuthor, Book[] array) {
 
-    public static Book[] booksByAuthor(Book[] array) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter an Author: ");
-        String searchableAuthor = sc.nextLine();
         int countByAuthor = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i].author.compareTo(searchableAuthor) == 0) {
@@ -20,9 +17,7 @@ public class BookLibrary {
         Book[] bookArrayByAuthor = new Book[countByAuthor];
         int indexByAuthor = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i].author.compareTo(searchableAuthor) != 0) {
-                continue;
-            } else {
+            if (array[i].author.compareTo(searchableAuthor) == 0) {
                 bookArrayByAuthor[indexByAuthor] = array[i];
                 indexByAuthor++;
             }
@@ -30,17 +25,14 @@ public class BookLibrary {
         return bookArrayByAuthor;
     }
 
-    public static void printBooksArrayByAuthor(Book[] array) {
-        Book[] arrayToPrint = booksByAuthor(array);
+    public static void printBooksArrayByAuthor(String searchableAuthor, Book[] array) {
+        Book[] arrayToPrint = findByAuthor(searchableAuthor, array);
         for (int i = 0; i < arrayToPrint.length; i++) {
             System.out.println(arrayToPrint[i]);
         }
     }
 
-    public static Book[] booksByPublisher(Book[] array) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a Publisher: ");
-        String searchablePublisher = sc.nextLine();
+    public static Book[] findByPublisher(String searchablePublisher, Book[] array) {
         int countByPublisher = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i].publisher.compareTo(searchablePublisher) == 0) {
@@ -53,9 +45,7 @@ public class BookLibrary {
         Book[] bookArrayByPublisher = new Book[countByPublisher];
         int indexByPublisher = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i].publisher.compareTo(searchablePublisher) != 0) {
-                continue;
-            } else {
+            if (array[i].publisher.compareTo(searchablePublisher) == 0) {
                 bookArrayByPublisher[indexByPublisher] = array[i];
                 indexByPublisher++;
             }
@@ -63,17 +53,15 @@ public class BookLibrary {
         return bookArrayByPublisher;
     }
 
-    public static void printBooksArrayByPublisher(Book[] array) {
-        Book[] arrayToPrint = booksByPublisher(array);
+    public static void printBooksArrayByPublisher(String searchablePublisher, Book[] array) {
+        Book[] arrayToPrint = findByPublisher(searchablePublisher, array);
         for (int i = 0; i < arrayToPrint.length; i++) {
             System.out.println(arrayToPrint[i]);
         }
     }
 
-    public static Book[] booksByYear(Book[] array) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a Year: ");
-        int searchableYear = sc.nextInt();
+    public static Book[] findByYear(int searchableYear, Book[] array) {
+
         int countByYear = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i].year > searchableYear) {
@@ -86,20 +74,17 @@ public class BookLibrary {
         Book[] bookArrayByYear = new Book[countByYear];
         int indexByYear = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i].year <= searchableYear) {
-                continue;
-            } else {
+            if (array[i].year > searchableYear) {
                 bookArrayByYear[indexByYear] = array[i];
                 indexByYear++;
             }
         }
         return bookArrayByYear;
     }
-    public static void printBooksArrayByYear(Book[] array) {
-        Book[] arrayToPrint = booksByYear(array);
+    public static void printBooksArrayByYear(int searchableYear, Book[] array) {
+        Book[] arrayToPrint = findByYear(searchableYear, array);
         for (int i = 0; i < arrayToPrint.length; i++) {
             System.out.println(arrayToPrint[i]);
         }
     }
-
 }
