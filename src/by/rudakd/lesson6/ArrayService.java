@@ -4,8 +4,15 @@ import java.util.Arrays;
 
 public class ArrayService implements MySuperArray {
 
-    public static int arrayLength = 10;
-    int[] array;
+    private Integer[] array;
+
+    public ArrayService(int n) {
+        this.array = new Integer[n];
+    }
+
+    public ArrayService() {
+        this.array = new Integer[0];
+    }
 
     @Override
     public String toString() {
@@ -14,65 +21,47 @@ public class ArrayService implements MySuperArray {
                 '}';
     }
 
-    public int[] fillArray(int arrayLength){
-        array = new int[arrayLength];
-        for (int i = 0; i < array.length; i++) {
-            array[i] += i;
-        }
-        return array;
-    }
-
     //Получить текущую длину массива
     @Override
     public int getLength() {
         return array.length;
     }
 
+    //Получить элемент по индексу
+    @Override
+    public Integer getElement(int index) {
+        if(index > this.array.length) {
+            System.out.println("Выход за пределы массива: индекс " + index);
+            return null;
+        }
+        return this.array[index];
+    }
+
+    //Удалить все текущие элементы (длина массива будет 0 после этой операции)
+    @Override
+    public void removeAllElements() {
+        this.array = new Integer[0];
+    }
+
+    @Override
+    public Integer[] getAllElements() {
+        return this.array;
+    }
+
     //Добавить элемент. Длина массива должна увеличится на 1.
     @Override
     public int addElement(Integer element) {
-        int plusOneElementLength = array.length;
-        int[] plusOneElement = new int[plusOneElementLength + 1];
-        for (int i = 0; i < array.length; i++) {
-            plusOneElement[i] = array[i];
-            if (i == array.length - 1) {
+        int plusOneElementLength = this.array.length;
+        Integer[] plusOneElement = new Integer[plusOneElementLength + 1];
+        for (int i = 0; i < this.array.length; i++) {
+            plusOneElement[i] = this.array[i];
+            if (i == this.array.length - 1) {
                 plusOneElementLength++;
                 plusOneElement[i + 1] = element;
 
             }
         }
-        array = plusOneElement;
+        this.array = plusOneElement;
         return plusOneElementLength;
-    }
-
-    //Получить элемент по индексу
-    @Override
-    public Integer getElement(int index) {
-
-        for(int i = 0; i < array.length; i++) {
-            if(i == index) {
-                //System.out.println("Значение элемента под индексом " + index + " = " + array[i]);
-                return Integer.valueOf(array[i]);
-            }
-        }
-        return null;
-    }
-    //Удалить все текущие элементы (длина массива будет 0 после этой операции)
-    @Override
-    public void removeAllElements() {
-
-        int removeArray = 0;
-        int[] deletedArray = new int[removeArray];
-        array = deletedArray;
-    }
-
-    @Override
-    public Integer[] getAllElements() {
-        fillArray(arrayLength);
-        Integer[] arrayOfIntegers = new Integer[array.length];
-        for(int i = 0; i < array.length; i++){
-            arrayOfIntegers[i] = Integer.valueOf(array[i]);
-        }
-        return arrayOfIntegers;
     }
 }
