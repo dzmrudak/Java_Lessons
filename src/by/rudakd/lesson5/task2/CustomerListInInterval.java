@@ -11,7 +11,7 @@ public class CustomerListInInterval {
         }
     }
 
-    public static Customer[] customerListInInterval(int startOfInterval, int endOfInterval, Customer[] array) {
+    public static Customer[] findCustomerListInInterval(int startOfInterval, int endOfInterval, Customer[] array) {
 
         int countOfNewArrayLength = 0;
         int indexOfNewArray = 0;
@@ -31,7 +31,7 @@ public class CustomerListInInterval {
     }
 
     public static void printArrayInInterval(int startOfInterval, int endOfInterval, Customer[] array) {
-        Customer[] arrayToPrint = customerListInInterval(startOfInterval, endOfInterval, array);
+        Customer[] arrayToPrint = findCustomerListInInterval(startOfInterval, endOfInterval, array);
         for (int i = 0; i < arrayToPrint.length; i++) {
             System.out.println(arrayToPrint[i]);
         }
