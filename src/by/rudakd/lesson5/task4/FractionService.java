@@ -12,19 +12,12 @@ public class FractionService {
                 a.m = a.m - (a.intPart * a.n); // определение знаменателя дроби без целой части
             }
         }
-        while ((a.m % 2 == 0 && a.n % 2 == 0) || (a.m % 3 == 0 && a.n % 3 == 0)) { //Проверяем на сократимость дроби
-            if (a.m % 2 == 0 && a.n % 2 == 0) { // Для четных сократимых дробей
-                while (a.m % 2 == 0 && a.n % 2 == 0) {
-                    a.m /= 2;
-                    a.n /= 2;
-                }
-            } else if (a.m % 3 == 0 && a.n % 3 == 0) { // Для нечетных сократимых дробей
-                while (a.m % 3 == 0 && a.n % 3 == 0) {
-                    a.m /= 3;
-                    a.n /= 3;
-                }
+        int divisionStartValue = Math.min(Math.abs(a.n), Math.abs(a.m));
+        for (int i = divisionStartValue; i >= 2; i--)
+            if (a.n % i == 0 && a.m % i == 0) {
+                a.n /= i;
+                a.m /= i;
             }
-        }
         return a;
     }
 }
