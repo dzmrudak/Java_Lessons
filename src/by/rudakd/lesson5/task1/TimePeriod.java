@@ -16,6 +16,13 @@ public class TimePeriod {
         this.minutes = minutes;
         this.seconds = seconds;
     }
+    
+    public TimePeriod(int seconds) {
+        periodCounter = id++;
+        this.seconds = seconds % 60;
+        this.minutes = (seconds - this.seconds) / 60;
+        this.hours = (this.minutes - (this.minutes % 60)) / 60;
+    }
 
     public int getTimePeriodId() {
         return periodCounter;
@@ -26,18 +33,18 @@ public class TimePeriod {
     }
 
     public int calculateSeconds() {
-        int amountOfSeconds;
-        amountOfSeconds = (this.hours * 3600) + (this.minutes * 60) + this.seconds;
-        return amountOfSeconds;
+        return (this.hours * 3600) + (this.minutes * 60) + this.seconds;
     }
 
-    public void compareTwoTimePeriods(TimePeriod b) {
-        if (calculateSeconds() > b.calculateSeconds()) {
+    @Override
+    public int compareTo(TimePeriod b) {
+        if (this.calculateSeconds() > b.calculateSeconds()) {
             System.out.println("Period" + periodCounter + " is longer than Period" + b.periodCounter);
-        } else if (calculateSeconds() < b.calculateSeconds()) {
+        } else if (this.calculateSeconds() < b.calculateSeconds()) {
             System.out.println("Period" + periodCounter + " is shorter than Period" + b.periodCounter);
         } else {
             System.out.println("Periods are equal");
         }
+        return 0;
     }
 }
