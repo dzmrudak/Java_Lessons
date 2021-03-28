@@ -2,7 +2,7 @@ package by.rudakd.lesson5.task1;
 
 import java.util.Scanner;
 
-public class TimePeriod {
+public class TimePeriod implements Comparable<TimePeriod> {
 
     public static int id = 1;
     public int periodCounter;
